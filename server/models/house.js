@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-var houseSchema = new Schema({
+var foodSchema = new Schema({
   name: String,
   address: String,
   description: String,
@@ -15,6 +15,6 @@ var houseSchema = new Schema({
   timestamps: true
 })
 
-var House = mongoose.model('House',houseSchema);
+var Food = mongoose.model('Food',foodSchema);
 
-module.exports = House
+module.exports = Food
