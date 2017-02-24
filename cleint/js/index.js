@@ -8,6 +8,11 @@ $(document).ready(function() {
 })
 
 function tampil() {
+    // $("#").val(iddata)
+    // $("#").val(iddata)
+// document.querySelector("#imgshow").src = ""
+
     $('.large.modal')
         .modal('show');
+
 }

@@ -13,6 +13,7 @@ var app = new Vue({
       price: '',
       phone: '',
       imageUrl: '',
+      youtubeUrl: '',
       rating: '',
     },
     editFood: {
@@ -23,6 +24,7 @@ var app = new Vue({
       price: '',
       phone: '',
       imageUrl: '',
+      youtubeUrl: '',
       rating: ''
     }
   },
@@ -62,11 +64,13 @@ var app = new Vue({
           app.inputFood.price = ''
           app.inputFood.phone =  ''
           app.inputFood.imageUrl = ''
+          app.inputFood.imageUrl = ''
           app.inputFood.rating = ''
         })
         .catch(function (error) {
           console.log(error)
         })
+        app.getAllFood()
     },
     deleteOneFood: function (inputid) {
 

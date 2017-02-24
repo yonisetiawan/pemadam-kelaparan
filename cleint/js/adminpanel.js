@@ -1,54 +1,62 @@
-// $(document).ready(function() {
-//     $.ajax({
-//         url: "http://localhost:3000/getAll",
-//         type: "GET",
-//         success: function(result) {
-//             if (result) {
-//                 var tampung = ""
-//                 for (var i = result.length - 1; i >= 0; i--) {
-//                     tampung += `     <tr id="trID${result[i]._id}">
-//                                       <td id="idTitle${result[i]._id}">${result[i].title}</td>
-//                                       <input id="idDescription${result[i]._id}" type="hidden" value="${result[i].description}"></input>
-//                                       <input id="idDatepicker${result[i]._id}" type="hidden" value="${result[i].status}"></input>
-//                                       <td class="collapsing">
-//                                           <div class="ui fitted checkbox">
-//                                               <input id="${result[i]._id}" type="checkbox"><label name="actioncheck"></label>
-//                                           </div>
-//                                       </td>
-//                                   </tr>`
-//                 }
-//                 $("#listtodo").append(tampung)
-//             }
-//         }
-//     })
-// })
+$(document).ready(function() {
+    $.ajax({
+        url: "http://localhost:3000/food/getAll",
+        type: "GET",
+        success: function(result) {
+            if (result) {
+                var tampung = ""
+                for (var i = result.length - 1; i >= 0; i--) {
+                  tampung += `     <tr id="trID${result[i]._id}">
+                                        <td id="idTitle${result[i]._id}">${result[i].name}</td>
+                                        <td id="idDescription${result[i]._id}">${result[i].category}</input>
+                                        <td id="idDatepicker${result[i]._id}">${result[i].price}</input>
+                                        <td class="collapsing">
+                                            <div class="ui fitted checkbox">
+                                                <input id="${result[i]._id}" type="checkbox"><label name="actioncheck"></label>
+                                            </div>
+                                        </td>
+                                    </tr>`
+
+                }
+                $("#listtodo").append(tampung)
+            }
+        }
+    })
+})
 
 function addTodos() {
     $.ajax({
-        url: "http://localhost:3000/add",
+        url: "http://localhost:3000/food/add",
         type: "POST",
         data: {
-            title: $("#title").val(),
-            description: $("#description").val(),
-            status: $("#datepicker").val()
+            name: $("#name").val(),
+            address: $("#address").val(),
+            category: $("#category").val(),
+            price: $("#price").val(),
+            imageUrl: $("#iamgeUrl").val(),
+            youtubeUrl: $("#youtubeUrl").val(),
+            rating: $("#rating").val()
         },
         success: function(result) {
-            if (result) {
-                tampung = `     <tr id="trID${result._id}">
-                                      <td id="idTitle${result._id}">${result.title}</td>
-                                      <input id="idDescription${result._id}" type="hidden" value="${result.description}"></input>
-                                      <input id="idDatepicker${result._id}" type="hidden" value="${result.status}"></input>
-                                      <td class="collapsing">
-                                          <div class="ui fitted checkbox">
-                                              <input id="${result._id}" type="checkbox"><label name="actioncheck"></label>
-                                          </div>
-                                      </td>
-                                  </tr>`
-                $("#listtodo").prepend(tampung)
-                $("#title").val('')
-                $("#description").val('')
-                $("#datepicker").val('')
-            }
+          tampung = `     <tr id="trID${result._id}">
+                                <td id="idTitle${result._id}">${result.name}</td>
+                                <td id="idDescription${result._id}">${result.category}</input>
+                                <td id="idDatepicker${result._id}">${result.price}</input>
+                                <td class="collapsing">
+                                    <div class="ui fitted checkbox">
+                                        <input id="${result._id}" type="checkbox"><label name="actioncheck"></label>
+                                    </div>
+                                </td>
+                            </tr>`
+
+          $("#listtodo").prepend(tampung)
+          $("#name").val(''),
+          $("#address").val(''),
+          $("#category").val(''),
+          $("#price").val(''),
+          $("#iamgeUrl").val(''),
+          $("#youtubeUrl").val(''),
+          $("#rating").val('')
         }
     })
 
@@ -69,7 +77,7 @@ function warningAction(input) {
     if (checkList() && input == "remove") {
         swal({
                 title: "Are you sure?",
-                text: "Memo will be remove",
+                text: "Food will be remove",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -78,7 +86,7 @@ function warningAction(input) {
             },
             function() {
                 checkAction(input)
-                swal("Deleted!", "Your Memo has been deleted.", "success");
+                swal("Deleted!", "Your Food has been deleted.", "success");
             })
     } else if (checkList() && input == "update") {
         $('.ui.modal.update').modal('show');
@@ -157,7 +165,7 @@ function runningUpdate() {
 
 function deleteTodos(arrId) {
     $.ajax({
-        url: "http://localhost:3000/delete",
+        url: "http://localhost:3000/food/delete",
         type: "DELETE",
         data: {
             arrId: JSON.stringify(arrId)

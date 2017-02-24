@@ -9,6 +9,7 @@ var foodSchema = new Schema({
   price: Number,
   phone: String,
   imageUrl: String,
+  youtubeUrl: String,
   rating:Number
 },{
   timestamps: true

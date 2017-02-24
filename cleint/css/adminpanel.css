@@ -17,6 +17,9 @@
 table.ui thead tr{
   text-align: center;
 }
+table.ui tbody tr{
+  text-align: center;
+}
 table.ui thead tr th#action{
   width: 15%;
 }

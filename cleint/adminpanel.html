@@ -5,64 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="http://icons.iconarchive.com/icons/sonya/swarm/256/Fast-Food-icon.png">
     <link rel="stylesheet" href="/css/sweetalert.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/css/semantic.min.css">
     <link rel="stylesheet" href="/css/adminpanel.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <title>Pemadam Kelaparan Admin Panel</title>
+
 </head>
 
 <body>
-
-    <div class="ui container containerTOP">
+    <div id="app" class="ui container containerTOP">
         <div class="boxTodos">
             <form class="ui form">
                 <div class="field">
                     <label>Name</label>
-                    <input id="name" type="text" name="name" placeholder="Name">
+                    <input id="name" type="text" name="name" placeholder="Name" v-model="inputFood.name">
                 </div>
                 <div class="field">
                     <label>Address</label>
-                    <textarea id="address" placeholder="Address" rows="3"></textarea>
+                    <textarea id="address" placeholder="Address" rows="3" v-model="inputFood.address"></textarea>
                 </div>
                 <div class="field">
                     <label>Category</label>
-                    <input id="category" type="text" name="category" placeholder="Category">
+                    <input id="category" type="text" name="category" placeholder="Category" v-model="inputFood.category">
                 </div>
                 <div class="field">
                     <label>Price</label>
-                    <input id="price" type="text" name="price" placeholder="Price">
+                    <input id="price" type="text" name="price" placeholder="Price" v-model="inputFood.price">
                 </div>
                 <div class="field">
                     <label>imageUrl</label>
-                    <input id="iamgeUrl" type="text" name="iamgeUrl" placeholder="imageUrl">
+                    <input id="iamgeUrl" type="text" name="imageUrl" placeholder="imageUrl" v-model="inputFood.imageUrl">
                 </div>
                 <div class="field">
                     <label>youtubeUrl</label>
-                    <input id="youtubeUrl" type="text" name="youtubeUrl" placeholder="youtubeUrl">
+                    <input id="youtubeUrl" type="text" name="youtubeUrl" placeholder="youtubeUrl" v-model="inputFood.youtubeUrl">
                 </div>
                 <div class="field">
                     <label>Rating</label>
-                    <input id="rating" type="text" name="rating" placeholder="Rating">
+                    <input id="rating" type="text" name="rating" placeholder="Rating" v-model="inputFood.rating">
                 </div>
-
-
-
-
             </form>
             <div class="submitTodo five ui buttons">
-                <button onclick="addTodos()" class="positive ui button">Add New</button>
+                <button v-on:click="createOneFood()" class="positive ui button">Add Food</button>
             </div>
-
         </div>
 
         <table class="ui celled table">
             <thead>
                 <tr>
-                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
                     <th id="action">Action</th>
                 </tr>
             </thead>
@@ -71,22 +65,21 @@
             </tbody>
             <tfoot class="full-width">
                 <tr>
-                    <!-- <th></th> -->
                     <th colspan="4">
                         <div class="buttonStatus">
-                          <button onclick="warningAction('remove')" class="ui red button">Remove</button>
-                            <div class="ui buttons">
+                            <button onclick="warningAction('remove')" class="ui red button">Remove</button>
+                            <!-- <div class="ui buttons">
                                 <button onclick="warningAction('update')" class="ui teal button">update</button>
                                 <div class="or"></div>
                                 <button onclick="warningAction('complete')" class="ui positive button">Read</button>
-                            </div>
+                            </div> -->
                         </div>
                     </th>
                 </tr>
             </tfoot>
         </table>
 
-
+        <!--
         <div class="ui modal update">
             <i class="close icon"></i>
             <div class="header">
@@ -135,29 +128,18 @@
                 </div>
             </div>
         </div>
-
+ -->
 
     </div>
 
-    <script>
-        $(function() {
-            $("#listtodo").sortable();
-            $("#listtodo").disableSelection();
-        });
-    </script>
-
-    <script>
-    $(function() {
-      $( "#datepicker" ).datepicker();
-    });
-    $(function() {
-      $( "#datepickerUpdate" ).datepicker();
-    });
-    </script>
-    <script type="text/javascript" src="./helpers/date.js"></script>
-    <script type="text/javascript" src="./js/sweetalert.min.js"></script>
-    <script type="text/javascript" src="./js/adminpanel.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script type="text/javascript" src="./js/semantic.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="./js/vueConnect.js"></script>
+    <script type="text/javascript" src="./js/sweetalert.min.js"></script>
+
 </body>
 
 </html>

@@ -13,7 +13,7 @@
 
 <body>
 
-    <div id="app" class="ui fluid container imageHeader">
+    <div id="app" class="ui fluid container imageHeader app">
         <img src="http://www.foodspotting.com/images/footer-v2.png" alt="">
         <div class="ui container bgMenu">
             <div class="ui eight column grid bagMenu">
@@ -87,6 +87,8 @@
                     <div class="image">
                         <img v-bind:src="showfood.imageUrl">
                     </div>
+                    <input type="hidden" v-bind:id="showfood._id" v-bind:value="showfood.imageUrl">
+                    <input type="hidden" v-bind:id="showfood._id" v-bind:value="showfood.youtubeUrl">
                     <div class="content">
                         <div class="header">{{showfood.name}}</div>
                         <div class="meta">
@@ -170,10 +172,10 @@
             <div class="ui grid">
                 <div class="two column row">
                     <div class="boxHouse">
-                        <img class="imgSize" src="https://b.zmtcdn.com/data/res_imagery/7420627_CHAIN_4f7c5bc8c5f2d21c20870e7f2ba75de9.jpg" alt="">
+                        <img id="imgshow" class="imgSize" src="https://b.zmtcdn.com/data/res_imagery/7420627_CHAIN_4f7c5bc8c5f2d21c20870e7f2ba75de9.jpg" alt="">
                     </div>
                     <div id="mapdetails" class="boxMaps">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yLyY_monjk0" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="youtubeshow" width="560" height="315" src="https://www.youtube.com/embed/yLyY_monjk0" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <!-- <div class="desFood">
                       <h3>Song Fa Bak Kut Teh</h3>
