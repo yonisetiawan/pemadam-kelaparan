@@ -5,12 +5,11 @@ const Schema = mongoose.Schema;
 var foodSchema = new Schema({
   name: String,
   address: String,
-  description: String,
+  category: String,
   price: Number,
   phone: String,
   imageUrl: String,
-  lat: String,
-  lng: String
+  rating:Number
 },{
   timestamps: true
 })

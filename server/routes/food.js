@@ -14,12 +14,11 @@ router.post('/add', function(req, res, next) {
   var addFood = new modelsFood({
     name: req.body.inputFood.name,
     address: req.body.inputFood.address,
-    description: req.body.inputFood.description,
+    category: req.body.inputFood.category,
     price: req.body.inputFood.price,
     phone: req.body.inputFood.phone,
     imageUrl: req.body.inputFood.imageUrl,
-    lat: req.body.inputFood.lat,
-    lng: req.body.inputFood.lng
+    rating: req.body.inputFood.rating
   })
   addFood.save(function(err, result) {
     if(err)res.send(err)

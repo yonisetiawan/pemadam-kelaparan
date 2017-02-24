@@ -2,36 +2,34 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Welcome to HousePedia',
-    houses: [],
+    message: 'Welcome to Pemadam Kelaparan',
+    food: [],
     detailHouse: [],
     inputHouse: {
       name: '',
       address: '',
-      description: '',
+      category: '',
       price: '',
       phone: '',
       imageUrl: '',
-      lat: '',
-      lng: ''
+      ratiing: '',
     },
     editHouse: {
       _id: '',
       name: '',
       address: '',
-      description: '',
+      category: '',
       price: '',
       phone: '',
       imageUrl: '',
-      lat: '',
-      lng: ''
+      rating: ''
     }
   },
   methods: {
-    getAllHouses: function () {
+    getAllFood: function () {
       axios.get('http://localhost:3000/api/getAll')
         .then(function (result) {
-          app.houses = result.data.reverse()
+          app.food = result.data.reverse()
         })
         .catch(function (error) {
           console.log(error)
@@ -42,15 +40,14 @@ var app = new Vue({
         inputHouse: app.inputHouse,
       })
         .then(function (result) {
-          app.houses.unshift(result.data)
+          app.food.unshift(result.data)
           app.inputHouse.name = ''
           app.inputHouse.address = ''
-          app.inputHouse.description = ''
+          app.inputHouse.category = ''
           app.inputHouse.price = ''
           app.inputHouse.phone =  ''
           app.inputHouse.imageUrl = ''
-          app.inputHouse.lat = ''
-          app.inputHouse.lng = ''
+          app.inputHouse.rating = ''
         })
         .catch(function (error) {
           console.log(error)
@@ -65,9 +62,9 @@ var app = new Vue({
               id: inputid
           }
       }).then(function(result) {
-          for (var i = 0; i < app.houses.length; i++) {
-              if (app.houses[i]._id == result.data) {
-                  app.houses.splice(i, 1)
+          for (var i = 0; i < app.food.length; i++) {
+              if (app.food[i]._id == result.data) {
+                  app.food.splice(i, 1)
               }
           }
       }).catch(function(error) {
@@ -112,38 +109,39 @@ var app = new Vue({
   }
 })
 
-app.getAllHouses()
-
-function pinMaps(latInput, lngInput) {
-      map = new GMaps({
-          div: '#mapdetails',
-          zoom: 16,
-          lat: latInput,
-          lng: lngInput,
-      })
-      map.addMarker({
-        lat: latInput,
-        lng: lngInput,
-      });
-}
+app.getAllFood()
 function createIklan() {
     $('.small.modal')
         .modal('show');
 }
-function getLocation() {
-  map = new GMaps({
-      div: '#mapsGetLocation',
-      zoom: 16,
-      lat: -6.260772,
-      lng: 106.781638,
-      click: function(e) {
-        map.removeMarkers()
-        app.inputHouse.lat = e.latLng.lat()
-        app.inputHouse.lng = e.latLng.lng()
-        map.addMarker({
-          lat: e.latLng.lat(),
-          lng: e.latLng.lng(),
-        });
-      }
-  });
-}
+
+// 
+// function pinMaps(latInput, lngInput) {
+//       map = new GMaps({
+//           div: '#mapdetails',
+//           zoom: 16,
+//           lat: latInput,
+//           lng: lngInput,
+//       })
+//       map.addMarker({
+//         lat: latInput,
+//         lng: lngInput,
+//       });
+// }
+// function getLocation() {
+//   map = new GMaps({
+//       div: '#mapsGetLocation',
+//       zoom: 16,
+//       lat: -6.260772,
+//       lng: 106.781638,
+//       click: function(e) {
+//         map.removeMarkers()
+//         app.inputHouse.lat = e.latLng.lat()
+//         app.inputHouse.lng = e.latLng.lng()
+//         map.addMarker({
+//           lat: e.latLng.lat(),
+//           lng: e.latLng.lng(),
+//         });
+//       }
+//   });
+// }
