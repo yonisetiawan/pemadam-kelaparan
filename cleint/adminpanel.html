@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/sweetalert.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/css/semantic.min.css">
+    <link rel="stylesheet" href="/css/adminpanel.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <title>Pemadam Kelaparan Admin Panel</title>
+</head>
+
+<body>
+
+    <div class="ui container containerTOP">
+        <div class="boxTodos">
+            <form class="ui form">
+                <div class="field">
+                    <label>Name</label>
+                    <input id="name" type="text" name="name" placeholder="Name">
+                </div>
+                <div class="field">
+                    <label>Address</label>
+                    <textarea id="address" placeholder="Address" rows="3"></textarea>
+                </div>
+                <div class="field">
+                    <label>Category</label>
+                    <input id="category" type="text" name="category" placeholder="Category">
+                </div>
+                <div class="field">
+                    <label>Price</label>
+                    <input id="price" type="text" name="price" placeholder="Price">
+                </div>
+                <div class="field">
+                    <label>imageUrl</label>
+                    <input id="iamgeUrl" type="text" name="iamgeUrl" placeholder="imageUrl">
+                </div>
+                <div class="field">
+                    <label>youtubeUrl</label>
+                    <input id="youtubeUrl" type="text" name="youtubeUrl" placeholder="youtubeUrl">
+                </div>
+                <div class="field">
+                    <label>Rating</label>
+                    <input id="rating" type="text" name="rating" placeholder="Rating">
+                </div>
+
+
+
+
+            </form>
+            <div class="submitTodo five ui buttons">
+                <button onclick="addTodos()" class="positive ui button">Add New</button>
+            </div>
+
+        </div>
+
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th id="action">Action</th>
+                </tr>
+            </thead>
+            <tbody id="listtodo">
+
+            </tbody>
+            <tfoot class="full-width">
+                <tr>
+                    <!-- <th></th> -->
+                    <th colspan="4">
+                        <div class="buttonStatus">
+                          <button onclick="warningAction('remove')" class="ui red button">Remove</button>
+                            <div class="ui buttons">
+                                <button onclick="warningAction('update')" class="ui teal button">update</button>
+                                <div class="or"></div>
+                                <button onclick="warningAction('complete')" class="ui positive button">Read</button>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+
+
+        <div class="ui modal update">
+            <i class="close icon"></i>
+            <div class="header">
+                Form Update Memo
+            </div>
+            <form class="ui form formUpdate">
+                <input type="hidden" id="idUpdate" placeholder="Title">
+                <div class="field">
+                    <input type="text" id="titleUpdate" placeholder="Title">
+                </div>
+                <div class="field">
+                    <textarea id="descriptionUpdate" placeholder="Description" rows="3"></textarea>
+                </div>
+                <div class="field">
+                  <input id="datepickerUpdate" type="text" name="date" placeholder="02/09/2017">
+                </div>
+            </form>
+            <div class="actions">
+                <div onclick="runningUpdate()" class="ui positive right labeled icon button">
+                    Update
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui modal read">
+            <i class="close icon"></i>
+            <div class="header">
+                "Memo" Details
+            </div>
+            <form class="ui form formUpdate">
+                <div class="field">
+                    <h1 id="titleRead"></h1>
+                </div>
+                <div class="field">
+                    <p id="descriptionRead"></p>
+                </div>
+                <div class="field">
+                  <p id="datepickerRead"></p>
+                </div>
+            </form>
+            <div class="actions">
+                <div class="ui positive right labeled icon button">
+                    Done
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        $(function() {
+            $("#listtodo").sortable();
+            $("#listtodo").disableSelection();
+        });
+    </script>
+
+    <script>
+    $(function() {
+      $( "#datepicker" ).datepicker();
+    });
+    $(function() {
+      $( "#datepickerUpdate" ).datepicker();
+    });
+    </script>
+    <script type="text/javascript" src="./helpers/date.js"></script>
+    <script type="text/javascript" src="./js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="./js/adminpanel.js"></script>
+    <script type="text/javascript" src="./js/semantic.min.js"></script>
+</body>
+
+</html>

@@ -103,12 +103,8 @@
                         <span class="left floated">
                           <div class="extra">
                             Rating:
-                            <div class="ui star rating"  v-bind:data-rating="showfood.rating">
+                            <div class="ui star rating" v-for="n in showfood.rating">
                               <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon"></i>
                             </div>
                           </div>
                         </span>
@@ -171,26 +167,29 @@
 
         <div class="ui large modal">
             <i class="close icon"></i>
-            <form class="ui form formRead">
-                <div class="field">
-                    <input type="text" id="title" placeholder="Title">
+            <div class="ui grid">
+                <div class="two column row">
+                    <div class="boxHouse">
+                        <img class="imgSize" src="https://b.zmtcdn.com/data/res_imagery/7420627_CHAIN_4f7c5bc8c5f2d21c20870e7f2ba75de9.jpg" alt="">
+                    </div>
+                    <div id="mapdetails" class="boxMaps">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yLyY_monjk0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- <div class="desFood">
+                      <h3>Song Fa Bak Kut Teh</h3>
+                      <p>Ozone Mall, Lantai 1, Jl. Pantai Indah Kapuk Utara 3, Pantai Indah Kapuk, Jakarta</p>
+                      <p>Chinese Food</p>
+                      <h4>Rp. 20000</h4>
+                    </div> -->
                 </div>
-                <div class="field">
-                    <input type="text" id="address" placeholder="Address">
-                </div>
-                <div class="field">
-                    <textarea id="description" placeholder="Description" rows="3"></textarea>
-                </div>
-                <div class="field">
-                    <input type="text" id="price" placeholder="1000000">
-                </div>
-                <div class="field">
-                    <input type="text" id="contact" placeholder="085789897676">
-                </div>
-                <div class="field">
-                    <input type="text" id="imageUrl" placeholder="Image URL">
-                </div>
-            </form>
+                <!-- <div class="detailData">
+                <h1>${result.data.name}</h1>
+                <p>${result.data.address}</p>
+                <p>${result.data.description}</p>
+                <h3>Rp. ${result.data.price}</h3>
+                <h4>Telp. ${result.data.phone}}</h4>
+                </div> -->
+            </div>
         </div>
 
     </div>

@@ -1,0 +1,26 @@
+.containerTOP{
+  margin: 2%;
+}
+
+.boxTodos{
+  padding: 0 30%;
+}
+
+.submitTodo{
+  padding-top: 20px;
+  /*float: right;*/
+}
+.buttonStatus{
+  float: right;
+}
+
+table.ui thead tr{
+  text-align: center;
+}
+table.ui thead tr th#action{
+  width: 15%;
+}
+
+.formUpdate{
+  padding: 5%;
+}
