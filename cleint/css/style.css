@@ -1,0 +1,48 @@
+.imageHeader{
+  z-index: 0;
+  position: absolute;
+}
+
+.bgMenu{
+  margin-top: -445px;
+}
+
+.imgMenu {
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+}
+
+.menuSerach{
+  margin-top: 320px;
+}
+
+.menuFood{
+  margin: 23px;
+  padding: 0 5.7%;
+  /*background-color: blue;*/
+}
+
+
+.bagMenu {
+    z-index: 1;
+    background-color: rgb(95, 210, 246);
+    text-align: center;
+    position: relative;;
+}
+
+.inputsize{
+  width: 450px;
+}
+
+.bagMenu .column a{
+  color:white;
+  style:bold;
+}
+
+.bagMenu .column:hover {
+    background-color: rgb(238, 165, 76);
+}
+.bagMenu .column:active {
+    background-color: rgb(244, 132, 17);
+}
