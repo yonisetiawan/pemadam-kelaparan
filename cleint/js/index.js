@@ -6,3 +6,8 @@ $(document).ready(function() {
         showConfirmButton: false
     });
 })
+
+function tampil() {
+    $('.large.modal')
+        .modal('show');
+}

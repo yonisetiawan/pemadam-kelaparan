@@ -12,13 +12,20 @@ router.get('/getAll', function(req, res, next) {
 
 router.post('/add', function(req, res, next) {
   var addFood = new modelsFood({
-    name: req.body.inputFood.name,
-    address: req.body.inputFood.address,
-    category: req.body.inputFood.category,
-    price: req.body.inputFood.price,
-    phone: req.body.inputFood.phone,
-    imageUrl: req.body.inputFood.imageUrl,
-    rating: req.body.inputFood.rating
+    name: req.body.name,
+    address: req.body.address,
+    category: req.body.category,
+    price: req.body.price,
+    phone: req.body.phone,
+    imageUrl: req.body.imageUrl,
+    rating: req.body.rating
+    // name: req.body.inputFood.name,
+    // address: req.body.inputFood.address,
+    // category: req.body.inputFood.category,
+    // price: req.body.inputFood.price,
+    // phone: req.body.inputFood.phone,
+    // imageUrl: req.body.inputFood.imageUrl,
+    // rating: req.body.inputFood.rating
   })
   addFood.save(function(err, result) {
     if(err)res.send(err)

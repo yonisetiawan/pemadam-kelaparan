@@ -83,27 +83,27 @@
 
         <div class="ui center aligned container menuFood">
             <div class="ui three link cards">
-                <div class="card">
+                <div class="card"  v-for="showfood in food" onclick="tampil()">
                     <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7420627_CHAIN_4f7c5bc8c5f2d21c20870e7f2ba75de9.jpg">
+                        <img v-bind:src="showfood.imageUrl">
                     </div>
                     <div class="content">
-                        <div class="header">Song Fa Bak Kut Teh</div>
+                        <div class="header">{{showfood.name}}</div>
                         <div class="meta">
-                            <a>Chinese Food</a>
+                            <a>{{showfood.category}}</a>
                         </div>
                         <div class="description">
-                            Ozone Mall, Lantai 1, Jl. Pantai Indah Kapuk Utara 3, Pantai Indah Kapuk, Jakarta
+                            {{showfood.address}}
                         </div>
                     </div>
                     <div class="extra content">
                         <span class="right floated">
-                            Rp. 20.000
+                            Rp. {{showfood.price}}
                           </span>
                         <span class="left floated">
                           <div class="extra">
                             Rating:
-                            <div class="ui star rating" data-rating="3">
+                            <div class="ui star rating"  v-bind:data-rating="showfood.rating">
                               <i class="icon active"></i>
                               <i class="icon active"></i>
                               <i class="icon active"></i>
@@ -114,198 +114,18 @@
                         </span>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://2.bp.blogspot.com/-ppU1R6-IesY/V5YAEUGRyEI/AAAAAAABPDs/ythNs9ZYRlYiQP2570H-OYtk8Axj04S4QCLcB/s1600/OJJU%2BJAKARTA-14.jpg">
-                    </div>
-                    <div class="content">
-                        <div class="header">OJJU</div>
-                        <div class="meta">
-                            <a>Korean Food</a>
-                        </div>
-                        <div class="description">
-                            Kota Kasablanka, Lantai Upper Ground, Food Society, Jl. Casablanca Raya, Tebet, Jakarta
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <span class="right floated">
-                            Rp. 25.000
-                          </span>
-                        <span class="left floated">
-                          <div class="extra">
-                            Rating:
-                            <div class="ui star rating" data-rating="3">
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                            </div>
-                          </div>
-                        </span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7401672_RESTAURANT_b2f98d48795d8f7362c11afa0761fedc.jpg">
-                    </div>
-                    <div class="content">
-                        <div class="header">Bakmi Berdikari</div>
-                        <div class="meta">
-                            <a>Asian Food</a>
-                        </div>
-                        <div class="description">
-                            Jl. Tebet Timur Dalam Raya No. 39 - 41, Tebet, Jakarta
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <span class="right floated">
-                            Rp. 22.000
-                          </span>
-                        <span class="left floated">
-                          <div class="extra">
-                            Rating:
-                            <div class="ui star rating" data-rating="3">
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon"></i>
-                            </div>
-                          </div>
-                        </span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7400536_CHAIN_05902120836cb3063aa546b03831abb6.jpg">
-                    </div>
-                    <div class="content">
-                        <div class="header">Steak 21</div>
-                        <div class="meta">
-                            <a>Steak</a>
-                        </div>
-                        <div class="description">
-                            TIS Square, Lantai Ground, Jl. MT Haryono, Tebet, Jakarta
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <span class="right floated">
-                            Rp. 12000
-                          </span>
-                        <span class="left floated">
-                          <div class="extra">
-                            Rating:
-                            <div class="ui star rating" data-rating="3">
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon"></i>
-                            </div>
-                          </div>
-                        </span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7420990_CHAIN_82e036087aa40dad2f951bc171ae0065_c.jpg">
-                    </div>
-                    <div class="content">
-                        <div class="header">Donburi Ichiya</div>
-                        <div class="meta">
-                            <a>Japanese Food</a>
-                        </div>
-                        <div class="description">
-                            Kota Kasablanka, Lantai Upper Ground, Jl. Casablanca Raya, Tebet, Jakarta
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <span class="right floated">
-                            Rp. 20.000
-                          </span>
-                        <span class="left floated">
-                          <div class="extra">
-                            Rating:
-                            <div class="ui star rating" data-rating="3">
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon"></i>
-                            </div>
-                          </div>
-                        </span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7422221_CHAIN_c8e51370a89d57d5ef6615cba5712390.jpg">
-                    </div>
-                    <div class="content">
-                        <div class="header">Maison Tatsuya</div>
-                        <div class="meta">
-                            <a>Japanese, Western Food</a>
-                        </div>
-                        <div class="description">
-                            Kota Kasablanka, Lantai Ground, Food Society, Jl. Casablanca Raya, Tebet, Jakarta
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <span class="right floated">
-                            Rp. 25.000
-                          </span>
-                        <span class="left floated">
-                          <div class="extra">
-                            Rating:
-                            <div class="ui star rating" data-rating="3">
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                              <i class="icon active"></i>
-                            </div>
-                          </div>
-                        </span>
-                    </div>
-                </div>
+
             </div>
             <div class="ui four link cards">
-                <div class="card">
+                <div class="card" v-for="showrandomfood in randomfood">
                     <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7401469_CHAIN_8273928d5637c1a77e93cd2d5cf3ebcf.jpg">
+                        <img v-bind:src="showrandomfood.imageUrl">
                     </div>
                     <div class="extra">
-                        Abuba Steak
+                        {{showrandomfood.name}}
                     </div>
                 </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7400626_CHAIN_537bee945f092c33145b30bb74a169bc.jpg">
-                    </div>
-                    <div class="extra">
-                        Rasahe
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7421456_RESTAURANT_cca431bc3d47aa04b4c773e562d892a6.jpg">
-                    </div>
-                    <div class="extra">
-                        Bebek Malio
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image">
-                        <img src="https://b.zmtcdn.com/data/res_imagery/7420990_CHAIN_82e036087aa40dad2f951bc171ae0065_c.jpg">
-                    </div>
-                    <div class="extra">
-                        Donburi Ichiya
-                    </div>
-                </div>
-
             </div>
-
         </div>
 
 
@@ -349,13 +169,36 @@
             </div>
         </div>
 
+        <div class="ui large modal">
+            <i class="close icon"></i>
+            <form class="ui form formRead">
+                <div class="field">
+                    <input type="text" id="title" placeholder="Title">
+                </div>
+                <div class="field">
+                    <input type="text" id="address" placeholder="Address">
+                </div>
+                <div class="field">
+                    <textarea id="description" placeholder="Description" rows="3"></textarea>
+                </div>
+                <div class="field">
+                    <input type="text" id="price" placeholder="1000000">
+                </div>
+                <div class="field">
+                    <input type="text" id="contact" placeholder="085789897676">
+                </div>
+                <div class="field">
+                    <input type="text" id="imageUrl" placeholder="Image URL">
+                </div>
+            </form>
+        </div>
 
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script type="text/javascript" src="./js/vueConnect.js"></script> -->
+    <script type="text/javascript" src="./js/vueConnect.js"></script>
     <script type="text/javascript" src="./js/semantic.min.js"></script>
     <script type="text/javascript" src="./js/sweetalert.min.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>

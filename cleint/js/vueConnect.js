@@ -4,17 +4,18 @@ var app = new Vue({
   data: {
     message: 'Welcome to Pemadam Kelaparan',
     food: [],
-    detailHouse: [],
-    inputHouse: {
+    randomfood: [],
+    detailFood: [],
+    inputFood: {
       name: '',
       address: '',
       category: '',
       price: '',
       phone: '',
       imageUrl: '',
-      ratiing: '',
+      rating: '',
     },
-    editHouse: {
+    editFood: {
       _id: '',
       name: '',
       address: '',
@@ -27,37 +28,51 @@ var app = new Vue({
   },
   methods: {
     getAllFood: function () {
-      axios.get('http://localhost:3000/api/getAll')
+      axios.get('http://localhost:3000/food/getAll')
         .then(function (result) {
           app.food = result.data.reverse()
+          app.pushFoodRandom(result.data.length)
         })
         .catch(function (error) {
           console.log(error)
         })
     },
-    createOneHouse: function () {
-      axios.post('http://localhost:3000/api/add', {
-        inputHouse: app.inputHouse,
+    pushFoodRandom: function(input) {
+        if(input==0){
+          var acak = Math.floor(Math.random()*1)
+        }else if(input < 5){
+          var acak = Math.floor(Math.random()*1)
+          app.randomfood.push(app.food[acak])
+        }else{
+          for (var i = 0; i < 4; i++) {
+            var acak = Math.floor(Math.random()*input)
+            app.randomfood.push(app.food[acak])
+          }
+        }
+    },
+    createOneFood: function () {
+      axios.post('http://localhost:3000/food/add', {
+        inputFood: app.inputFood,
       })
         .then(function (result) {
           app.food.unshift(result.data)
-          app.inputHouse.name = ''
-          app.inputHouse.address = ''
-          app.inputHouse.category = ''
-          app.inputHouse.price = ''
-          app.inputHouse.phone =  ''
-          app.inputHouse.imageUrl = ''
-          app.inputHouse.rating = ''
+          app.inputFood.name = ''
+          app.inputFood.address = ''
+          app.inputFood.category = ''
+          app.inputFood.price = ''
+          app.inputFood.phone =  ''
+          app.inputFood.imageUrl = ''
+          app.inputFood.rating = ''
         })
         .catch(function (error) {
           console.log(error)
         })
     },
-    deleteOneHouse: function (inputid) {
+    deleteOneFood: function (inputid) {
 
       axios({
           method: 'delete',
-          url: 'http://localhost:3000/api/delete',
+          url: 'http://localhost:3000/food/delete',
           data: {
               id: inputid
           }
@@ -71,17 +86,17 @@ var app = new Vue({
           console.log(error)
       })
     },
-    showDetailHouse: function (inputid) {
+    showDetailFood: function (inputid) {
       document.getElementById("listView").innerHTML = ""
 
-      axios.post('http://localhost:3000/api/detail', {
+      axios.post('http://localhost:3000/food/detail', {
         id: inputid,
       })
         .then(function (result) {
           var detailData = `
               <div class="ui grid">
                   <div class="two column row">
-                      <div class="boxHouse">
+                      <div class="boxFood">
                           <img src="${result.data.imageUrl}" alt="">
                       </div>
                       <div id="mapdetails" class="boxMaps">
@@ -115,7 +130,7 @@ function createIklan() {
         .modal('show');
 }
 
-// 
+//
 // function pinMaps(latInput, lngInput) {
 //       map = new GMaps({
 //           div: '#mapdetails',
@@ -136,8 +151,8 @@ function createIklan() {
 //       lng: 106.781638,
 //       click: function(e) {
 //         map.removeMarkers()
-//         app.inputHouse.lat = e.latLng.lat()
-//         app.inputHouse.lng = e.latLng.lng()
+//         app.inputFood.lat = e.latLng.lat()
+//         app.inputFood.lng = e.latLng.lng()
 //         map.addMarker({
 //           lat: e.latLng.lat(),
 //           lng: e.latLng.lng(),

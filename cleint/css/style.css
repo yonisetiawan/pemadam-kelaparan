@@ -46,3 +46,7 @@
 .bagMenu .column:active {
     background-color: rgb(244, 132, 17);
 }
+
+.formRead{
+  padding: 5%;
+}
